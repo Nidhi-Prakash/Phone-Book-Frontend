@@ -97,7 +97,7 @@ import axios from "axios";
 import { errorToast } from "./toast";
 import { API_BASE_URL } from "./config";
 
-console.log("API", API_BASE_URL);
+// const API_BASE_URL = "https://phone-book-backend.vercel.app/";
 
 export const registerUser = async (userName, email, password) => {
   try {
