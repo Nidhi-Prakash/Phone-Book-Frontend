@@ -1,5 +1,5 @@
 import axios from "axios";
-import { errorToast } from "../../contact-ui-app/src/utils/toast";
+import { errorToast } from "./toast";
 
 export const registerUser = async (userName, email, password) => {
   try {
