@@ -102,7 +102,7 @@ console.log("API", API_BASE_URL);
 export const registerUser = async (userName, email, password) => {
   try {
     const body = { userName, email, password };
-    const response = await axios.post(`${API_BASE_URL}/user/register`, body);
+    const response = await axios.post(`${API_BASE_URL}user/register`, body);
     if (response.status === 201) {
       // Handle successful registration
     }
@@ -114,7 +114,7 @@ export const registerUser = async (userName, email, password) => {
 export const loginUser = async (email, password) => {
   try {
     const body = { email, password };
-    const response = await axios.post(`${API_BASE_URL}/user/login`, body);
+    const response = await axios.post(`${API_BASE_URL}user/login`, body);
     if (response.status === 201) {
       localStorage.setItem("accessToken", response.data.token);
     }
@@ -126,7 +126,7 @@ export const loginUser = async (email, password) => {
 
 export const getCurrentUser = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/user`, {
+    const response = await axios.get(`${API_BASE_URL}user`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
@@ -139,7 +139,7 @@ export const getCurrentUser = async () => {
 
 export const getAllContacts = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/contacts`, {
+    const response = await axios.get(`${API_BASE_URL}contacts`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
@@ -153,7 +153,7 @@ export const getAllContacts = async () => {
 export const editContact = async (Id, Name, Phone_Number) => {
   try {
     const body = { Name, Phone_Number };
-    const response = await axios.put(`${API_BASE_URL}/contacts/${Id}`, body, {
+    const response = await axios.put(`${API_BASE_URL}contacts/${Id}`, body, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
@@ -167,7 +167,7 @@ export const editContact = async (Id, Name, Phone_Number) => {
 export const addNewContact = async (Name, Phone_Number) => {
   try {
     const body = { Name, Phone_Number };
-    const response = await axios.post(`${API_BASE_URL}/contacts`, body, {
+    const response = await axios.post(`${API_BASE_URL}contacts`, body, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
@@ -180,7 +180,7 @@ export const addNewContact = async (Name, Phone_Number) => {
 
 export const deleteContact = async (Id) => {
   try {
-    const response = await axios.delete(`${API_BASE_URL}/contacts/${Id}`, {
+    const response = await axios.delete(`${API_BASE_URL}contacts/${Id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
